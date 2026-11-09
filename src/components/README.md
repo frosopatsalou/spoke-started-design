@@ -26,7 +26,7 @@ import { Button, Input, ServiceCard } from './components'
 
 Selection is controlled by the parent. TimeSlot and ServiceCard expose `aria-pressed`; disabled time slots use the native disabled attribute. Input labels are connected using stable generated IDs. The back-arrow SVG is the original Figma asset, saved locally at its native 24 × 24 size.
 
-The home page is an interactive component preview. Preview action buttons announce a message; they do not submit a real booking. The three booking screens and backend integration are outside this design-system transfer.
+The home page is an interactive component preview. Preview action buttons announce a message; they do not submit a real booking. The three booking screens are implemented in src/pages and reuse these components. Backend integration is not connected.
 
 BookingCard also implements the visually identical frame 4:6. Open /booking-card for its standalone preview. Pass onBook to connect the native button to your booking flow.
 

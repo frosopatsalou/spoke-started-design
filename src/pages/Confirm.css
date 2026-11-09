@@ -1,0 +1,13 @@
+.confirm-screen__summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding: var(--space-16);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+.confirm-screen__summary .spoke-summary-row { width: 100%; }
+.confirm-screen__form { display: flex; flex-direction: column; gap: var(--space-16); }
+.confirm-screen__input { width: 100%; }
+.confirm-screen__note { color: var(--color-text-muted); font: var(--font-card-caption); }

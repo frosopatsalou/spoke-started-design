@@ -34,7 +34,6 @@ function readSlot(): DropOffSlot {
 export function PickSlot({ onBack, onContinue }: PickSlotProps) {
   const [service] = useState(readService)
   const [slot, setSlot] = useState(readSlot)
-  const [message, setMessage] = useState('')
   const duration = service.duration.replace(/ min$/, ' minutes')
 
   function continueBooking() {
@@ -42,7 +41,7 @@ export function PickSlot({ onBack, onContinue }: PickSlotProps) {
       sessionStorage.setItem('spoke.selectedSlot', JSON.stringify(slot))
     } catch { /* The selected slot can still be passed through the callback. */ }
     if (onContinue) onContinue(slot)
-    else setMessage(`${slot.day} at ${slot.time} selected. Next, confirm your details.`)
+    else window.location.assign('/confirm')
   }
 
   return (
@@ -56,17 +55,16 @@ export function PickSlot({ onBack, onContinue }: PickSlotProps) {
         <section className="pick-slot-screen__group" aria-labelledby="day-label">
           <h2 id="day-label">Day</h2>
           <div className="pick-slot-screen__options" role="group" aria-labelledby="day-label">
-            {days.map(day => <TimeSlot key={day} label={day} state={slot.day === day ? 'Selected' : 'Default'} onClick={() => { setSlot(current => ({ ...current, day })); setMessage('') }} />)}
+            {days.map(day => <TimeSlot key={day} label={day} state={slot.day === day ? 'Selected' : 'Default'} onClick={() => setSlot(current => ({ ...current, day }))} />)}
           </div>
         </section>
         <section className="pick-slot-screen__group" aria-labelledby="time-label">
           <h2 id="time-label">Drop-off time</h2>
           <div className="pick-slot-screen__options" role="group" aria-labelledby="time-label">
-            {times.map(time => <TimeSlot key={time} label={time} state={['09:00', '10:30'].includes(time) ? 'Disabled' : slot.time === time ? 'Selected' : 'Default'} onClick={() => { setSlot(current => ({ ...current, time })); setMessage('') }} />)}
+            {times.map(time => <TimeSlot key={time} label={time} state={['09:00', '10:30'].includes(time) ? 'Disabled' : slot.time === time ? 'Selected' : 'Default'} onClick={() => setSlot(current => ({ ...current, time }))} />)}
           </div>
         </section>
         <p className="pick-slot-screen__note">Ready the same day. We text you when your bike is done.</p>
-        {message && <p className="choose-service-screen__status" role="status">{message}</p>}
       </main>
       <ActionBar className="choose-service-screen__action-bar" label="Continue" onClick={continueBooking} />
     </div>

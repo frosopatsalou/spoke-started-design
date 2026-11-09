@@ -34,8 +34,9 @@ The /design-system page previews the transferred Figma foundations and all eight
 
 - / and /choose-service : Choose a service booking screen
 - /pick-slot : Pick a drop-off time, connected from service selection
+- /confirm : booking summary and contact form
 - /design-system : design tokens and component examples
 - /components : all eight components from the Figma overview
 - /booking-card : standalone booking card
 
-The slot screen uses the sample day labels and availability from Figma. Continue saves the chosen day and time for the confirmation step; it does not create a booking or reserve a live slot.
+The slot screen uses the sample day labels and availability from Figma. Continue saves the chosen day and time and opens the confirmation step. The confirmation form validates a name and phone number. Its default submission is a clearly labelled preview; it does not create a booking or reserve a live slot. Pass an onConfirm callback to the Confirm page to connect a booking backend.
