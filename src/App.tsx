@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { ActionBar, BookingCard, Button, Input, ServiceCard, SummaryRow, Tag, TimeSlot, TopBar } from './components'
 import './App.css'
 import { ComponentOverview } from './pages/ComponentOverview'
+import { ChooseService } from './pages/ChooseService'
 
 const colours = ['surface', 'text-primary', 'text-muted', 'border', 'brand', 'on-brand', 'tag-background', 'tag-text']
 const typeStyles = [
@@ -19,6 +20,7 @@ function App() {
   const [selected, setSelected] = useState(true)
   const [message, setMessage] = useState('')
   const notify = () => setMessage('Preview action activated. No booking was submitted.')
+  if (window.location.pathname === '/' || window.location.pathname === '/choose-service') return <ChooseService />
   if (window.location.pathname === '/components') return <ComponentOverview />
   if (window.location.pathname === '/booking-card') {
     return <main className="booking-card-preview">

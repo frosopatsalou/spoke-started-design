@@ -32,6 +32,7 @@ The home page previews the transferred Figma foundations and all eight starter-k
 
 ## Preview routes
 
-- / : design tokens and component examples
+- / and /choose-service : Choose a service booking screen
+- /design-system : design tokens and component examples
 - /components : all eight components from the Figma overview
 - /booking-card : standalone booking card

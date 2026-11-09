@@ -1,0 +1,35 @@
+.choose-service-screen {
+  /* Reference frame height; colours and spacing come from the shared tokens. */
+  --size-booking-screen-height: 844px;
+  display: flex;
+  flex-direction: column;
+  width: var(--size-screen);
+  max-width: 100%;
+  min-height: max(var(--size-booking-screen-height), 100svh);
+  margin-inline: auto;
+  border: var(--border-width) solid var(--color-border);
+  background: var(--color-surface);
+}
+.choose-service-screen__top-bar,
+.choose-service-screen__action-bar {
+  flex-shrink: 0;
+  width: 100%;
+}
+.choose-service-screen__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-16);
+  padding: var(--space-20);
+}
+.choose-service-screen__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.choose-service-screen__header h1 { font: var(--font-screen-title); }
+.choose-service-screen__header p { color: var(--color-text-muted); font: var(--font-card-body); }
+.choose-service-screen__list { display: flex; flex-direction: column; gap: var(--space-12); }
+.choose-service-screen__card { width: 100%; }
+.choose-service-screen__status { color: var(--color-text-muted); font: var(--font-card-caption); }
