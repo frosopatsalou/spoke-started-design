@@ -25,3 +25,13 @@ The app runs at http://localhost:5173. Stop it with Ctrl+C.
 ## Keep this repo public and clean
 
 Anyone can read this repo. Never commit passwords, API keys or `.env` files.
+
+## Design system
+
+The home page previews the transferred Figma foundations and all eight starter-kit components, plus the clean Booking card. See src/styles/README.md for token mappings and src/components/README.md for props and source node IDs. Run npm install and npm run dev to view it.
+
+## Preview routes
+
+- / : design tokens and component examples
+- /components : all eight components from the Figma overview
+- /booking-card : standalone booking card

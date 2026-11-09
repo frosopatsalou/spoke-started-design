@@ -1,0 +1,32 @@
+.spoke-button { display: inline-flex; justify-content: center; align-items: center; padding: var(--space-12) var(--space-20); border: 0; border-radius: var(--radius-md); background: var(--color-brand); color: var(--color-on-brand); font: var(--font-label-button); }
+.spoke-button--secondary { background: var(--color-surface); color: var(--color-text-primary); border: var(--border-width) solid var(--color-border); }
+.spoke-button:disabled { opacity: var(--opacity-disabled); }
+.spoke-tag { display: inline-flex; align-items: center; padding: var(--space-4) var(--space-12); border-radius: var(--radius-pill); background: var(--color-tag-background); color: var(--color-tag-text); font: var(--font-label-tag); white-space: nowrap; }
+.spoke-time-slot { display: inline-flex; align-items: center; justify-content: center; padding: var(--space-12) var(--space-16); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); color: var(--color-text-primary); font: var(--font-label-field); white-space: nowrap; }
+.spoke-time-slot[aria-pressed='true'] { border: 0; background: var(--color-brand); color: var(--color-on-brand); }
+.spoke-time-slot:disabled { opacity: var(--opacity-disabled); color: var(--color-text-muted); }
+.spoke-input { display: flex; flex-direction: column; align-items: stretch; gap: var(--space-8); width: var(--size-input); max-width: 100%; font: var(--font-label-field); }
+.spoke-input__field { width: 100%; min-width: 0; padding: var(--space-12) var(--space-16); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); color: var(--color-text-primary); font: var(--font-card-body); }
+.spoke-input__field::placeholder { color: var(--color-text-muted); opacity: 1; }
+.spoke-input__field:focus { border: var(--border-width-selected) solid var(--color-brand); outline: none; }
+.spoke-input__field:disabled { opacity: var(--opacity-disabled); }
+.spoke-top-bar { display: flex; align-items: center; gap: var(--space-12); width: var(--size-screen); max-width: 100%; padding: var(--space-16) var(--space-20); border-bottom: var(--border-width) solid var(--color-border); background: var(--color-surface); }
+.spoke-top-bar__back { display: flex; flex-shrink: 0; padding: 0; border: 0; background: none; }
+.spoke-top-bar__title { flex: 1; min-width: 0; font: var(--font-card-title); }
+.spoke-top-bar__step { color: var(--color-text-muted); font: var(--font-card-caption); white-space: nowrap; }
+.spoke-service-card { display: flex; flex-direction: column; align-items: stretch; gap: var(--space-8); width: var(--size-service-card); max-width: 100%; padding: var(--space-16); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); color: var(--color-text-primary); text-align: left; }
+.spoke-service-card[aria-pressed='true'] { border: var(--border-width-selected) solid var(--color-brand); }
+.spoke-service-card__header { display: flex; align-items: center; gap: var(--space-12); font: var(--font-card-title); }
+.spoke-service-card__title { flex: 1; min-width: 0; }
+.spoke-service-card__description { color: var(--color-text-muted); font: var(--font-card-body); }
+.spoke-tags { display: flex; flex-wrap: wrap; gap: var(--space-8); align-items: flex-start; }
+.spoke-summary-row { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-16); width: var(--size-summary-row); max-width: 100%; }
+.spoke-summary-row__label { color: var(--color-text-muted); font: var(--font-card-caption); }
+.spoke-summary-row__value { min-width: 0; text-align: right; overflow-wrap: anywhere; font: var(--font-card-body); }
+.spoke-action-bar { display: flex; flex-direction: column; width: var(--size-screen); max-width: 100%; padding: var(--space-16) var(--space-20); border-top: var(--border-width) solid var(--color-border); background: var(--color-surface); }
+.spoke-booking-card { display: flex; flex-direction: column; align-items: stretch; gap: var(--space-16); width: var(--size-booking-card); max-width: 100%; padding: var(--space-24); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); }
+.spoke-booking-card__header { display: flex; flex-direction: column; gap: var(--space-4); }
+.spoke-booking-card__title, .spoke-booking-card__price { font: var(--font-card-title); }
+.spoke-booking-card__description { color: var(--color-text-muted); font: var(--font-card-body); }
+.spoke-booking-card__meta { display: flex; align-items: center; justify-content: space-between; gap: var(--space-8); }
+.spoke-booking-card__caption { color: var(--color-text-muted); font: var(--font-card-caption); }
