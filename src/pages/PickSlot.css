@@ -1,0 +1,4 @@
+.pick-slot-screen__group { display: flex; flex-direction: column; gap: var(--space-8); }
+.pick-slot-screen__group h2 { font: var(--font-label-field); }
+.pick-slot-screen__options { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--space-8); }
+.pick-slot-screen__note { font: var(--font-card-caption); color: var(--color-text-muted); }

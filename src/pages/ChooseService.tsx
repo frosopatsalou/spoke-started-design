@@ -17,8 +17,12 @@ export type ChooseServiceProps = {
 
 /** Figma screen 7:114 — 01 Choose a service. */
 export function ChooseService({ onBack, onContinue }: ChooseServiceProps) {
-  const [selectedId, setSelectedId] = useState<RepairService['id']>('flat-tyre')
-  const [message, setMessage] = useState('')
+  const [selectedId, setSelectedId] = useState<RepairService['id']>(() => {
+    try {
+      const saved = JSON.parse(sessionStorage.getItem('spoke.selectedService') ?? 'null')
+      return services.find(service => service.id === saved?.id)?.id ?? 'flat-tyre'
+    } catch { return 'flat-tyre' }
+  })
   const selectedService = services.find(service => service.id === selectedId)!
 
   function continueBooking() {
@@ -26,13 +30,13 @@ export function ChooseService({ onBack, onContinue }: ChooseServiceProps) {
       onContinue(selectedService)
       return
     }
-    // Keep the choice available for the next booking screen when it is added.
+    // Carry the chosen service into the next booking screen.
     try {
       sessionStorage.setItem('spoke.selectedService', JSON.stringify(selectedService))
     } catch {
       // Selection still works when the browser blocks session storage.
     }
-    setMessage(`${selectedService.title} selected. Next, choose a drop-off slot.`)
+    window.location.assign('/pick-slot')
   }
 
   return (
@@ -58,12 +62,10 @@ export function ChooseService({ onBack, onContinue }: ChooseServiceProps) {
               state={selectedId === service.id ? 'Selected' : 'Default'}
               onClick={() => {
                 setSelectedId(service.id)
-                setMessage('')
               }}
             />
           ))}
         </div>
-        {message && <p className="choose-service-screen__status" role="status">{message}</p>}
       </main>
       <ActionBar className="choose-service-screen__action-bar" label="Continue" onClick={continueBooking} />
     </div>

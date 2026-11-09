@@ -28,11 +28,14 @@ Anyone can read this repo. Never commit passwords, API keys or `.env` files.
 
 ## Design system
 
-The home page previews the transferred Figma foundations and all eight starter-kit components, plus the clean Booking card. See src/styles/README.md for token mappings and src/components/README.md for props and source node IDs. Run npm install and npm run dev to view it.
+The /design-system page previews the transferred Figma foundations and all eight starter-kit components, plus the clean Booking card. See src/styles/README.md for token mappings and src/components/README.md for props and source node IDs. Run npm install and npm run dev to view it.
 
 ## Preview routes
 
 - / and /choose-service : Choose a service booking screen
+- /pick-slot : Pick a drop-off time, connected from service selection
 - /design-system : design tokens and component examples
 - /components : all eight components from the Figma overview
 - /booking-card : standalone booking card
+
+The slot screen uses the sample day labels and availability from Figma. Continue saves the chosen day and time for the confirmation step; it does not create a booking or reserve a live slot.
