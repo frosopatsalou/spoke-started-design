@@ -35,3 +35,23 @@
   border: var(--border-width-selected) solid var(--color-error-border);
 }
 .spoke-input__error { color: var(--color-error-text); font: var(--font-card-caption); }
+
+/* Hover elevation is limited to unselected, enabled cards on pointer devices. */
+.spoke-service-card {
+  transition: transform var(--motion-card-hover), box-shadow var(--motion-card-hover);
+}
+.spoke-service-card[aria-pressed='true'] {
+  transform: none;
+  box-shadow: none;
+  transition: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .spoke-service-card:not([aria-pressed='true']):not(:disabled):hover {
+    transform: translateY(calc(-1 * var(--space-4)));
+    box-shadow: var(--shadow-card-hover);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spoke-service-card { transition: none; }
+  .spoke-service-card:not([aria-pressed='true']):not(:disabled):hover { transform: none; }
+}

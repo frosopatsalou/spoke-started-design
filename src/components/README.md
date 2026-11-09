@@ -39,3 +39,9 @@ Pass an error message to Input to render a red border and small Error: text unde
 Figma Input now includes State=Error (node 2017:78), with editable Error message, Label and Placeholder properties. The review instances are in Input error states (2017:83). The red #B42318 has 6.57:1 contrast on white. Shared semantic tokens are color/error/text and color/error/border, both aliases of palette/red/700.
 
 Names accept Unicode letters, spaces, apostrophes, hyphens and initials; digits and symbols are rejected. Phone validation uses libphonenumber-js/max numbering plans, Belgium as the local default, and international country codes. Format validation cannot establish whether a name is real or a number is reachable.
+
+## Service card hover
+
+Unselected, enabled cards lift 4px with a 160ms ease-out transition and a soft neutral shadow (0 8px 24px, primary text colour at 12%). Selected cards stay grounded and shadow-free, including immediately after clicking a hovered card. Hover applies to fine pointers; reduced-motion settings remove the lift and transition.
+
+In Figma, Service card has State=Default, State=Hover (2024:85) and State=Selected. Default uses While hovering to change to Hover with Smart Animate, 160ms ease-out. Click selects the card; Selected has no hover interaction or shadow. The shared effect style is Service card/Hover. Review instances are in Service card hover states (2024:97). In React, Hover is a CSS interaction; the controlled state prop remains Default or Selected.

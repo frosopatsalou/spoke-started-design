@@ -31,6 +31,10 @@
   --font-label-field: 500 14px/20px var(--font-family);
   --font-label-tag: 500 13px/18px var(--font-family);
 
+  /* Service-card hover: shared with the Figma Hover variant. */
+  --motion-card-hover: 160ms ease-out;
+  --shadow-card-hover: 0 var(--space-8) var(--space-24) color-mix(in srgb, var(--color-text-primary) 12%, transparent);
+
   /* Implementation constants, not additional Figma variables. */
   --border-width: 1px;
   --border-width-selected: 2px;
