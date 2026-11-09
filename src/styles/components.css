@@ -30,3 +30,8 @@
 .spoke-booking-card__description { color: var(--color-text-muted); font: var(--font-card-body); }
 .spoke-booking-card__meta { display: flex; align-items: center; justify-content: space-between; gap: var(--space-8); }
 .spoke-booking-card__caption { color: var(--color-text-muted); font: var(--font-card-caption); }
+.spoke-input__field[aria-invalid='true'],
+.spoke-input__field[aria-invalid='true']:focus {
+  border: var(--border-width-selected) solid var(--color-error-border);
+}
+.spoke-input__error { color: var(--color-error-text); font: var(--font-card-caption); }

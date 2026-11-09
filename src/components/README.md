@@ -7,7 +7,7 @@ All components are named after their Figma counterparts and exported from `./ind
 | 3:33 | Button | variant: Primary / Secondary; label; onClick; disabled |
 | 3:27 | Tag | label |
 | 6:14 | TimeSlot | state: Default / Selected / Disabled; label; onClick |
-| 6:23 | Input | label; placeholder; native input props; real focus state |
+| 6:23 | Input | label; placeholder; error; native input props; real focus state |
 | 6:24 | TopBar | title; step; onBack |
 | 11:33 | ServiceCard | state: Default / Selected; title; description; price; duration; onClick |
 | 11:34 | SummaryRow | label; value |
@@ -31,3 +31,11 @@ The home page is an interactive component preview. Preview action buttons announ
 BookingCard also implements the visually identical frame 4:6. Open /booking-card for its standalone preview. Pass onBook to connect the native button to your booking flow.
 
 Open /components for the dedicated overview of all eight starter-kit components. Selection examples are controlled by React state; focus uses the browser focus state. Both button variants and every time-slot state are included.
+
+## Input errors
+
+Pass an error message to Input to render a red border and small Error: text underneath. The message is connected through aria-describedby and the field exposes aria-invalid. Errors stay red on focus. The confirmation page validates on blur and submit, clears errors as values are corrected, and focuses the first invalid field.
+
+Figma Input now includes State=Error (node 2017:78), with editable Error message, Label and Placeholder properties. The review instances are in Input error states (2017:83). The red #B42318 has 6.57:1 contrast on white. Shared semantic tokens are color/error/text and color/error/border, both aliases of palette/red/700.
+
+Names accept Unicode letters, spaces, apostrophes, hyphens and initials; digits and symbols are rejected. Phone validation uses libphonenumber-js/max numbering plans, Belgium as the local default, and international country codes. Format validation cannot establish whether a name is real or a number is reachable.

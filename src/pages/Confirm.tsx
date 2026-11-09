@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import type { FormEvent } from 'react'
 import { ActionBar, Input, SummaryRow, TopBar } from '../components'
 import './ChooseService.css'
 import './Confirm.css'
+import { validateName, validatePhone } from '../utils/validation'
 
 export type BookingDetails = {
   service: { title: string; price: string }
@@ -38,11 +39,20 @@ export function Confirm({ onBack, onConfirm }: ConfirmProps) {
   const [phone, setPhone] = useState('')
   const [pending, setPending] = useState(false)
   const [message, setMessage] = useState('')
+  const [touched, setTouched] = useState({ name: false, phone: false })
+  const formRef = useRef<HTMLFormElement>(null)
+  const nameError = validateName(name)
+  const phoneError = validatePhone(phone)
 
   async function submitBooking(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     if (pending) return
     setMessage('')
+    setTouched({ name: true, phone: true })
+    if (nameError || phoneError) {
+      formRef.current?.querySelector<HTMLInputElement>(nameError ? '[name="name"]' : '[name="phone"]')?.focus()
+      return
+    }
     if (!onConfirm) {
       setMessage('Preview complete. No booking has been submitted.')
       return
@@ -68,7 +78,7 @@ export function Confirm({ onBack, onConfirm }: ConfirmProps) {
           <SummaryRow label="Drop-off" value={`${slot.day} at ${slot.time}`} />
           <SummaryRow label="Price" value={`${service.price}, pay at pick-up`} />
         </section>
-        <form id="confirm-booking" className="confirm-screen__form" onSubmit={submitBooking}>
+        <form ref={formRef} id="confirm-booking" className="confirm-screen__form" noValidate onSubmit={submitBooking}>
           <Input
             className="confirm-screen__input"
             label="Your name"
@@ -76,10 +86,11 @@ export function Confirm({ onBack, onConfirm }: ConfirmProps) {
             autoComplete="name"
             value={name}
             required
+            error={touched.name ? nameError : undefined}
+            onBlur={() => setTouched(current => ({ ...current, name: true }))}
             maxLength={120}
             onChange={event => {
               setName(event.target.value)
-              event.target.setCustomValidity(event.target.value.trim() ? '' : 'Please enter your name.')
               setMessage('')
             }}
           />
@@ -92,14 +103,13 @@ export function Confirm({ onBack, onConfirm }: ConfirmProps) {
             autoComplete="tel"
             value={phone}
             required
+            error={touched.phone ? phoneError : undefined}
+            onBlur={() => setTouched(current => ({ ...current, phone: true }))}
             autoFocus
             maxLength={30}
             onChange={event => {
               const value = event.target.value
               setPhone(value)
-              const digits = value.replace(/\D/g, '').length
-              const valid = /^[+\d\s().-]+$/.test(value) && digits >= 7 && digits <= 15
-              event.target.setCustomValidity(valid ? '' : 'Please enter a valid phone number with 7 to 15 digits.')
               setMessage('')
             }}
           />

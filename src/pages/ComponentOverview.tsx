@@ -43,6 +43,7 @@ export function ComponentOverview() {
         <p>Click or tab into either field to see the focus variant.</p>
         <div className="preview-row">
           <Input id="overview-name" autoComplete="name" />
+          <Input id="overview-error" label="Error state" defaultValue="12345" error="Enter a valid phone number." />
           <Input id="overview-phone" label="Phone number" placeholder="Your phone number" type="tel" autoComplete="tel" />
         </div>
       </section>

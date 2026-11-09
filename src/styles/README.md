@@ -9,3 +9,5 @@ Inter regular, medium, and semibold are bundled locally through `@fontsource/int
 Implementation constants are labelled separately at the bottom of tokens.css: border widths, disabled opacity, and the original reference widths. Component widths shrink to fit their parent. Focus is a real browser state; inputs do not fake focus through a prop.
 
 Update the tokens when the Figma foundations change, then run `npm run build` and `npm run lint`. This is a point-in-time transfer, not automatic synchronisation.
+
+The Input error extension adds palette/red/700 (#B42318) and semantic color/error/text and color/error/border aliases. In CSS these are --color-error, --color-error-text and --color-error-border. Both Figma and code use the existing Card/Caption typography for helper errors.

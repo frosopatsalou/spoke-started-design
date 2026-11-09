@@ -1,6 +1,10 @@
 /* Figma ahxS09iKkUzQEZMzD97Uup: slash names become kebab-case.
-   First section contains all 17 source variables and seven text styles. */
+   Includes the original 17 source variables, error-state extensions and seven text styles. */
 :root {
+  /* Warm red shared with the Figma Input Error variant. */
+  --color-error: #b42318;
+  --color-error-text: var(--color-error);
+  --color-error-border: var(--color-error);
   --color-surface: #ffffff;
   --color-text-primary: #1a1a1a;
   --color-text-muted: #6b6660;
