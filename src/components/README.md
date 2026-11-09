@@ -34,7 +34,7 @@ Open /components for the dedicated overview of all eight starter-kit components.
 
 ## Input errors
 
-Pass an error message to Input to render a red border and small Error: text underneath. The message is connected through aria-describedby and the field exposes aria-invalid. Errors stay red on focus. The confirmation page validates on blur and submit, clears errors as values are corrected, and focuses the first invalid field.
+Pass an error message to Input to render a red border and small Error: text underneath. The message is connected through aria-describedby and the field exposes aria-invalid. While focused, fields hide placeholders, use the brand focus border, and hide error text. Invalid fields restore the error border and message on blur. Validation remains active while editing. The confirmation page validates on blur and submit, clears errors as values are corrected, and focuses the first invalid field.
 
 Figma Input now includes State=Error (node 2017:78), with editable Error message, Label and Placeholder properties. The review instances are in Input error states (2017:83). The red #B42318 has 6.57:1 contrast on white. Shared semantic tokens are color/error/text and color/error/border, both aliases of palette/red/700.
 

@@ -9,6 +9,7 @@
 .spoke-input__field { width: 100%; min-width: 0; padding: var(--space-12) var(--space-16); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); color: var(--color-text-primary); font: var(--font-card-body); }
 .spoke-input__field::placeholder { color: var(--color-text-muted); opacity: 1; }
 .spoke-input__field:focus { border: var(--border-width-selected) solid var(--color-brand); outline: none; }
+.spoke-input__field:focus::placeholder { opacity: 0; }
 .spoke-input__field:disabled { opacity: var(--opacity-disabled); }
 .spoke-top-bar { display: flex; align-items: center; gap: var(--space-12); width: var(--size-screen); max-width: 100%; padding: var(--space-16) var(--space-20); border-bottom: var(--border-width) solid var(--color-border); background: var(--color-surface); }
 .spoke-top-bar__back { display: flex; flex-shrink: 0; padding: 0; border: 0; background: none; }
@@ -30,8 +31,7 @@
 .spoke-booking-card__description { color: var(--color-text-muted); font: var(--font-card-body); }
 .spoke-booking-card__meta { display: flex; align-items: center; justify-content: space-between; gap: var(--space-8); }
 .spoke-booking-card__caption { color: var(--color-text-muted); font: var(--font-card-caption); }
-.spoke-input__field[aria-invalid='true'],
-.spoke-input__field[aria-invalid='true']:focus {
+.spoke-input__field[aria-invalid='true']:not(:focus) {
   border: var(--border-width-selected) solid var(--color-error-border);
 }
 .spoke-input__error { color: var(--color-error-text); font: var(--font-card-caption); }
@@ -55,3 +55,9 @@
   .spoke-service-card { transition: none; }
   .spoke-service-card:not([aria-pressed='true']):not(:disabled):hover { transform: none; }
 }
+
+/* Keep validation, but pause error styling while the user edits the field. */
+.spoke-input__field[aria-invalid='true']:focus {
+  border: var(--border-width-selected) solid var(--color-brand);
+}
+.spoke-input:focus-within .spoke-input__error { display: none; }
